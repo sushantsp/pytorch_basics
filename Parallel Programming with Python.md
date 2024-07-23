@@ -257,15 +257,15 @@ This chapter covers the topic of Thread lifecycle. Here's a summary of the main 
 |Terminated State	|A thread enters the terminated state when it either completes its execution or is abnormally aborted.|
 
 Key Takeaways:
-• The main thread can spawn additional threads to perform other tasks.
-• Threads usually go through four states: new, runnable, blocked, and terminated.
-• A thread doesn't use any CPU resources when it's in the new or blocked state.
-• A thread enters the terminated state when it completes its execution or is abnormally aborted.
+* The main thread can spawn additional threads to perform other tasks.
+* Threads usually go through four states: new, runnable, blocked, and terminated.
+* A thread doesn't use any CPU resources when it's in the new or blocked state.
+* A thread enters the terminated state when it completes its execution or is abnormally aborted.
 
 From my end:
-• The concept of thread lifecycle is crucial in understanding how programs execute and manage resources.
-• Understanding the different states of a thread can help in optimizing program performance and resource usage.
-• The join method can be used to make a thread wait until another thread completes its execution.
+* The concept of thread lifecycle is crucial in understanding how programs execute and manage resources.
+* Understanding the different states of a thread can help in optimizing program performance and resource usage.
+* The join method can be used to make a thread wait until another thread completes its execution.
 </details>
 <details>
 	<summary>
@@ -282,15 +282,15 @@ This chapter covers the topic of Thread lifecycle: Python demo. Here's a summary
 |Thread Joining	|The join method is used to make a thread wait until another thread has completed its execution.|
 
 Key Takeaways:
-	• Threads in Python can be created by defining a custom subclass that inherits from the thread class and overrides its run method.
-	• The init method is used to execute the parent thread class' init method.
-	• The run method contains the code to execute when the thread is started.
-	• The join method is used to make a thread wait until another thread has completed its execution.
+ * Threads in Python can be created by defining a custom subclass that inherits from the thread class and overrides its run method.
+ * The init method is used to execute the parent thread class' init method.
+ * The run method contains the code to execute when the thread is started.
+ * The join method is used to make a thread wait until another thread has completed its execution.
 
 From my end:
-	• The is_alive method can be used to check if a thread is still running.
-	• Even when a thread is sleeping, Python considers it to be alive.
-	• After a thread terminates and joins the main method, the is_alive method returns false.
+* The is_alive method can be used to check if a thread is still running.
+* Even when a thread is sleeping, Python considers it to be alive.
+* After a thread terminates and joins the main method, the is_alive method returns false.
 
 </details>
 <details>
@@ -306,13 +306,13 @@ This chapter covers the topic of Daemon thread. Here's a summary of the main poi
 | Thread Termination | When a process terminates, all its daemon threads are terminated abruptly. This is fine for tasks like garbage collection, but for tasks like IO operations, it could lead to data corruption. |
 
 Key Takeaways:
-• Daemon threads are used for background tasks and do not prevent the program from exiting.
-• Normal threads must all terminate before the program can exit.
-• Abrupt termination of daemon threads can lead to data corruption if they are performing tasks like IO operations.
+* Daemon threads are used for background tasks and do not prevent the program from exiting.
+* Normal threads must all terminate before the program can exit.
+* Abrupt termination of daemon threads can lead to data corruption if they are performing tasks like IO operations.
 
 From my end:
-• It's important to carefully consider the potential consequences of abruptly terminating a daemon thread before deciding to use one for a particular task.
-• Daemon threads can be very useful for tasks that need to run in the background, but they should be used with caution.
+* It's important to carefully consider the potential consequences of abruptly terminating a daemon thread before deciding to use one for a particular task.
+* Daemon threads can be very useful for tasks that need to run in the background, but they should be used with caution.
 </details>
 <details>
 	<summary>
@@ -331,14 +331,14 @@ The instructor demonstrates the use of a daemon thread in Python by defining a f
 |Daemon Thread Termination	|Daemon threads do not exit gracefully like normal threads. When all of the non-daemon threads in a program are done executing, any remaining daemon threads will be abandoned as Python exits.|
 
 Key Takeaways:
-	• Daemon threads are used for background tasks that need to run continuously.
-	• A daemon thread can be created by setting the 'daemon' property of a thread object to 'True'.
-	• Daemon threads do not exit gracefully like normal threads. They are abandoned when all non-daemon threads are done executing.
+* Daemon threads are used for background tasks that need to run continuously.
+* A daemon thread can be created by setting the 'daemon' property of a thread object to 'True'.
+* Daemon threads do not exit gracefully like normal threads. They are abandoned when all non-daemon threads are done executing.
 
 From my end:
-	• Daemon threads are useful in scenarios where you want a background task to run continuously until the main program is running.
-	• It's important to set the 'daemon' property before starting the thread, otherwise Python will raise a runtime error.
-	• Daemon threads can lead to abrupt termination of tasks as they do not exit gracefully. Hence, they should be used judiciously.
+* Daemon threads are useful in scenarios where you want a background task to run continuously until the main program is running.
+* It's important to set the 'daemon' property before starting the thread, otherwise Python will raise a runtime error.
+* Daemon threads can lead to abrupt termination of tasks as they do not exit gracefully. Hence, they should be used judiciously.
 </details>
 
 ## Mutual Exclusion 
@@ -359,14 +359,14 @@ Data races are a common problem in concurrent programming, occurring when two or
 |Synchronization Techniques	| Techniques that can be used to protect against data races, ensuring that threads do not interfere with each other.|
 
 Key Takeaways:
-• Data races are a common problem in concurrent programming.
-• The unpredictability of thread scheduling can sometimes cause data races.
-• Synchronization techniques can be used to protect against data races.
+* Data races are a common problem in concurrent programming.
+* The unpredictability of thread scheduling can sometimes cause data races.
+* Synchronization techniques can be used to protect against data races.
 
 From my end:
-• Understanding the concept of data races is crucial for writing efficient concurrent programs.
-• Debugging data races can be challenging due to their unpredictable nature.
-• Proper use of synchronization techniques can help in avoiding data races.
+* Understanding the concept of data races is crucial for writing efficient concurrent programs.
+* Debugging data races can be challenging due to their unpredictable nature.
+* Proper use of synchronization techniques can help in avoiding data races.
  
 </details>
 
@@ -386,14 +386,14 @@ The instructor demonstrates a data race in a simple Python program that uses two
 |Preventing Data Race	|The best defense against data races is a good offense, preventing them from occurring in the first place. Since a data race only occurs when at least one of the concurrent threads is modifying the value of a memory location, pay close attention to anywhere you use an assignment operation, or an operator like the plus equal incrementor that changes a variable's value. If there's a potential for two or more threads to access that variable and make changes to it, then you'll almost certainly need to use some sort of mechanism to protect it.|
 
 Key Takeaways:
-• Data races occur when two or more threads in a process access the same memory location concurrently, and at least one of the accesses is for writing, and the threads are not using any exclusive locks to control their accesses to that memory.
-• In Python, data races can be demonstrated with a simple program that uses two threads to concurrently increment a shared variable.
-• The best way to prevent data races is to pay close attention to anywhere you use an assignment operation, or an operator like the plus equal incrementor that changes a variable's value. If there's a potential for two or more threads to access that variable and make changes to it, then you'll almost certainly need to use some sort of mechanism to protect it.
+* Data races occur when two or more threads in a process access the same memory location concurrently, and at least one of the accesses is for writing, and the threads are not using any exclusive locks to control their accesses to that memory.
+* In Python, data races can be demonstrated with a simple program that uses two threads to concurrently increment a shared variable.
+* The best way to prevent data races is to pay close attention to anywhere you use an assignment operation, or an operator like the plus equal incrementor that changes a variable's value. If there's a potential for two or more threads to access that variable and make changes to it, then you'll almost certainly need to use some sort of mechanism to protect it.
 
 From my end:
-• Data races can be difficult to detect and fix, and can cause unexpected and incorrect results in your program.
-• There are tools that exist to help detect data races, but they are specific to different languages and environments.
-• It's important to understand the concept of data races and how to prevent them to ensure the accuracy and reliability of your multi-threaded programs.	
+* Data races can be difficult to detect and fix, and can cause unexpected and incorrect results in your program.
+* There are tools that exist to help detect data races, but they are specific to different languages and environments.
+* It's important to understand the concept of data races and how to prevent them to ensure the accuracy and reliability of your multi-threaded programs.	
 </details>
 
 
@@ -414,14 +414,14 @@ Mutual exclusion, also known as a mutex or lock, is a mechanism used to prevent 
 |Atomic Operation	|The operation to acquire the lock is an atomic operation, which means it's always executed as a single, indivisible action. To the rest of the system, an atomic operation appears to happen instantaneously, even if under the hood it really takes multiple steps.|
 
 Key Takeaways:
-• Mutex is a mechanism used to prevent multiple threads from simultaneously accessing a shared resource.
-• The operation to acquire the lock is an atomic operation, meaning it's always executed as a single, indivisible action.
-• It's important to keep the section of code protected with the mutex as short as possible to avoid blocking other threads.
+* Mutex is a mechanism used to prevent multiple threads from simultaneously accessing a shared resource.
+* The operation to acquire the lock is an atomic operation, meaning it's always executed as a single, indivisible action.
+* It's important to keep the section of code protected with the mutex as short as possible to avoid blocking other threads.
 
 From my end:
-• Mutex is a crucial concept in concurrent programming to avoid data inconsistency and race conditions.
-• Atomic operations are key to ensuring that critical sections of code are executed without interruption.
-• Proper use of mutex can significantly improve the efficiency and correctness of multi-threaded programs.	
+* Mutex is a crucial concept in concurrent programming to avoid data inconsistency and race conditions.
+* Atomic operations are key to ensuring that critical sections of code are executed without interruption.
+* Proper use of mutex can significantly improve the efficiency and correctness of multi-threaded programs.	
 </details>
 
 <details>
@@ -441,14 +441,14 @@ The chapter demonstrates how to manually enforce mutual exclusion with locks in 
 |Critical section	|The part of the program that requires mutual exclusion. It should be minimized to improve program efficiency.|
 
 Key Takeaways:
-• Mutual exclusion can be enforced in Python using locks from the threading module.
-• The lock object is acquired before entering the critical section and released immediately after exiting it.
-• Minimizing the critical section can improve the efficiency of the program.
+* Mutual exclusion can be enforced in Python using locks from the threading module.
+* The lock object is acquired before entering the critical section and released immediately after exiting it.
+* Minimizing the critical section can improve the efficiency of the program.
 
 From my end:
-• The lock object acts as a gatekeeper, ensuring that only one thread can execute the critical section at a time.
-• It's important to release the lock after the critical section to avoid deadlocks.
-• The critical section should only include the code that modifies the shared data, not the code that performs other operations.	
+* The lock object acts as a gatekeeper, ensuring that only one thread can execute the critical section at a time.
+* It's important to release the lock after the critical section to avoid deadlocks.
+* The critical section should only include the code that modifies the shared data, not the code that performs other operations.	
 </details>
 
 ## Locks
@@ -469,14 +469,14 @@ A reentrant lock is a type of mutex that can be locked multiple times by the sam
 |Recursive Function	| One use case where reentrant locks are really needed is when writing a recursive function. That is a function that calls itself. If the function makes a recursive call to itself from within a locked section, it will lock the mutex multiple times as it repeats itself, and then unlock the mutex an equal number of times as it returns and unwinds.|
 
 Key Takeaways:
-• A reentrant lock is a type of mutex that can be locked multiple times by the same process or thread.
-• A reentrant lock can prevent deadlocks, which occur when a thread tries to lock a mutex that it's already locked.
-• Reentrant locks are particularly useful when writing recursive functions, as the function will lock the mutex multiple times as it repeats itself, and then unlock the mutex an equal number of times as it returns and unwinds.
+* A reentrant lock is a type of mutex that can be locked multiple times by the same process or thread.
+* A reentrant lock can prevent deadlocks, which occur when a thread tries to lock a mutex that it's already locked.
+* Reentrant locks are particularly useful when writing recursive functions, as the function will lock the mutex multiple times as it repeats itself, and then unlock the mutex an equal number of times as it returns and unwinds.
 
 From my end:
-• Reentrant locks can make things easier as you don't need to worry as much about what's already been locked, and they make it easier to retrofit locks into existing code.
-• However, if you don't unlock the reentrant mutex the same number of times, you can still end up stuck.
-• Different languages use different terms for reentrant locks, but these all basically mean the same thing. They are also often referred to as a recursive mutex or a recursive lock.	
+* Reentrant locks can make things easier as you don't need to worry as much about what's already been locked, and they make it easier to retrofit locks into existing code.
+* However, if you don't unlock the reentrant mutex the same number of times, you can still end up stuck.
+* Different languages use different terms for reentrant locks, but these all basically mean the same thing. They are also often referred to as a recursive mutex or a recursive lock.	
 </details>
 
 <details>
@@ -494,14 +494,14 @@ The instructor demonstrates the use of a reentrant lock in Python using an examp
 |Regular Lock vs Rlock	|The regular lock can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it. The reentrant lock must also be released as many times as it was acquired before it will be available for another thread to take.|
 
 Key Takeaways:
-• Reentrant locks in Python can be acquired multiple times before being released.
-• Regular locks can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it.
-• The reentrant lock must also be released as many times as it was acquired before it will be available for another thread to take.
+* Reentrant locks in Python can be acquired multiple times before being released.
+* Regular locks can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it.
+* The reentrant lock must also be released as many times as it was acquired before it will be available for another thread to take.
 
 From my end:
-• It's important to understand the difference between regular locks and reentrant locks in Python to prevent potential issues in your program.
-• Trying to split lock operations across multiple threads is generally a bad idea and can lead to problems.
-• If a thread tries to release a lock that has not already been acquired, Python will raise an error and can crash your program.
+* It's important to understand the difference between regular locks and reentrant locks in Python to prevent potential issues in your program.
+* Trying to split lock operations across multiple threads is generally a bad idea and can lead to problems.
+* If a thread tries to release a lock that has not already been acquired, Python will raise an error and can crash your program.
 
 Rlock: Python demo
 This chapter covers the topic of Rlock: Python demo. Here's a summary of the main points:
@@ -514,14 +514,14 @@ The chapter demonstrates the use of a reentrant lock in Python using an example 
 |Regular lock vs Rlock	|The regular lock can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it. And of course, it must be released by that thread as many times as it was acquired before it will be available for another thread to take.|
 
 Key Takeaways:
-• Reentrant lock in Python can be acquired multiple times before being released.
-• Regular lock can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it.
-• Trying to split lock operations across multiple threads is generally a bad idea, and a surefire way to create problems.
+* Reentrant lock in Python can be acquired multiple times before being released.
+* Regular lock can be released by different threads than the one that acquired it, but the reentrant lock must be released by the same thread that acquired it.
+* Trying to split lock operations across multiple threads is generally a bad idea, and a surefire way to create problems.
 
 From my end:
-• The use of reentrant lock in Python is a good way to prevent data races in concurrent programming.
-• It's important to understand the difference between regular lock and Rlock in Python to avoid potential issues in your program.
-• Always ensure that a lock is released by the same thread that acquired it when using a reentrant lock.
+* The use of reentrant lock in Python is a good way to prevent data races in concurrent programming.
+* It's important to understand the difference between regular lock and Rlock in Python to avoid potential issues in your program.
+* Always ensure that a lock is released by the same thread that acquired it when using a reentrant lock.
 
 </details>
 
@@ -541,13 +541,13 @@ Try lock is a non-blocking version of the lock or acquire method used in multi-t
 |Use Case	|In a scenario where multiple threads have multiple tasks to perform, using try lock can be more efficient as it allows a thread to continue with other tasks if the lock is already taken.|
 
 Key Takeaways:
-• Try lock is a non-blocking version of the lock or acquire method.
-• It allows a thread to attempt to acquire a lock, and if the lock is already taken, the thread can continue with other tasks without being blocked.
-• The method returns immediately with a boolean value indicating whether the lock was successfully acquired or not.
+* Try lock is a non-blocking version of the lock or acquire method.
+* It allows a thread to attempt to acquire a lock, and if the lock is already taken, the thread can continue with other tasks without being blocked.
+* The method returns immediately with a boolean value indicating whether the lock was successfully acquired or not.
 
 From my end:
-• Try lock can be particularly useful in scenarios where threads have multiple tasks and waiting for a lock to be released can lead to inefficiencies.
-• It's important to handle the boolean return value of the try lock method appropriately in the code to ensure correct program execution.	
+* Try lock can be particularly useful in scenarios where threads have multiple tasks and waiting for a lock to be released can lead to inefficiencies.
+* It's important to handle the boolean return value of the try lock method appropriately in the code to ensure correct program execution.	
 </details>
 
 <details>
@@ -566,14 +566,14 @@ The chapter demonstrates how to implement the common try mock operation in Pytho
 |Python Threads	|Python threads are used to simulate the shoppers. The time taken from when the threads start until they finish is recorded to see how long it takes for them to find at least 20 items.|
 
 Key Takeaways:
-	• The non-blocking acquire method in Python allows for faster execution of programs by allowing one thread to continue executing while another is blocked.
-	• The order of statements on each side of the 'and' operator matters in Python, as Python evaluates the statement from left to right.
-	• The non-blocking acquire method immediately returns a Boolean value to indicate whether or not the lock was successfully acquired.
+* The non-blocking acquire method in Python allows for faster execution of programs by allowing one thread to continue executing while another is blocked.
+* The order of statements on each side of the 'and' operator matters in Python, as Python evaluates the statement from left to right.
+* The non-blocking acquire method immediately returns a Boolean value to indicate whether or not the lock was successfully acquired.
 
 From my end:
-	• The non-blocking acquire method can be particularly useful in multi-threaded programs where one thread may be waiting for a resource that is locked by another thread.
-	• The use of sleep function in Python threads is to simulate the time spent on certain operations, such as writing to the notepad or searching for items.
-	• The acquire method in Python is used to handle synchronization issues in multi-threaded programs.	
+* The non-blocking acquire method can be particularly useful in multi-threaded programs where one thread may be waiting for a resource that is locked by another thread.
+* The use of sleep function in Python threads is to simulate the time spent on certain operations, such as writing to the notepad or searching for items.
+* The acquire method in Python is used to handle synchronization issues in multi-threaded programs.	
 </details>
 
 <details>
@@ -594,14 +594,14 @@ A read-write lock, also known as a shared mutex, is a type of lock that allows m
 |Choosing the right lock	 | Deciding which type of mutex to use is a complicated decision. As a general rule of thumb, it makes sense to use a shared reader-writer lock when you have a lot more threads that will be reading from the shared data than the number of threads that will be writing to it.|
 
 Key Takeaways:
-• A read-write lock allows multiple threads to read a shared resource simultaneously but restricts write access to only one thread at a time.
-• Read-write locks can improve a program's performance when there are more threads reading from the shared data than writing to it.
-• Implementing a read-write lock is more complex than a standard mutex and typically uses more resources.
+* A read-write lock allows multiple threads to read a shared resource simultaneously but restricts write access to only one thread at a time.
+* Read-write locks can improve a program's performance when there are more threads reading from the shared data than writing to it.
+* Implementing a read-write lock is more complex than a standard mutex and typically uses more resources.
 
 From my end:
-• Read-write locks are particularly useful in database applications where read operations are more frequent than write operations.
-• The choice between a standard mutex and a read-write lock depends on the specific requirements of your application and the nature of the threads involved.
-• It's important to understand the language-dependent differences in how read-write locks are implemented as they can affect performance.	
+* Read-write locks are particularly useful in database applications where read operations are more frequent than write operations.
+* The choice between a standard mutex and a read-write lock depends on the specific requirements of your application and the nature of the threads involved.
+* It's important to understand the language-dependent differences in how read-write locks are implemented as they can affect performance.	
 </details>
 
 
@@ -621,14 +621,14 @@ The chapter explains the concept of reader-writer locks, which are a common feat
 |Upgrading from basic lock to reader-writer lock	| The chapter explains how to upgrade a program from using a basic lock to a reader-writer lock. This involves importing the reader-writer lock package and changing the lock constructor to use the RW lock package instead of the threading module.|
 
 Key Takeaways:
-	• Reader-writer locks are a common feature in many programming languages that support concurrency, but they're not included by default in Python.
-	• A Python program can use reader-writer locks to allow multiple threads to read a shared resource while only one thread can write to it at a time.
-	• Upgrading a program from using a basic lock to a reader-writer lock involves importing the reader-writer lock package and changing the lock constructor to use the RW lock package instead of the threading module.
+* Reader-writer locks are a common feature in many programming languages that support concurrency, but they're not included by default in Python.
+* A Python program can use reader-writer locks to allow multiple threads to read a shared resource while only one thread can write to it at a time.
+* Upgrading a program from using a basic lock to a reader-writer lock involves importing the reader-writer lock package and changing the lock constructor to use the RW lock package instead of the threading module.
 	
 From my end:
-	• The reader-writer lock package can be installed using the Python package manager with the console command pip install reader writer lock.
-	• The RW lock object has two methods. Gen r lock generates one lock for reading which can be held by multiple threads at once and gen w lock which generates another lock object for writers which can only be held by a single thread at once.
-	• The reader-writer lock doesn't make the information about the number of threads that are currently holding the counter easily accessible but it can be pulled by using read underscore marker dot c underscore rw underscore lock dot v underscore read underscore count.	
+* The reader-writer lock package can be installed using the Python package manager with the console command pip install reader writer lock.
+* The RW lock object has two methods. Gen r lock generates one lock for reading which can be held by multiple threads at once and gen w lock which generates another lock object for writers which can only be held by a single thread at once.
+* The reader-writer lock doesn't make the information about the number of threads that are currently holding the counter easily accessible but it can be pulled by using read underscore marker dot c underscore rw underscore lock dot v underscore read underscore count.	
 </details>
 
 
@@ -652,15 +652,15 @@ The deadlock is a situation in concurrent programming where each member of a gro
 |Solution to Deadlock	 | Prioritizing locks so that all threads try to acquire the same first lock can help avoid deadlock.|
 
 Key Takeaways:
-• Deadlock is a common challenge in concurrent programs that use mutual exclusion mechanisms to protect critical sections of code.
-• The Dining Philosophers Problem is a classic example used to illustrate synchronization issues when multiple threads are competing for multiple locks.
-• Liveness is a set of properties that require concurrent programs to make progress.
-• Prioritizing locks so that all threads try to acquire the same first lock can help avoid deadlock.
+* Deadlock is a common challenge in concurrent programs that use mutual exclusion mechanisms to protect critical sections of code.
+* The Dining Philosophers Problem is a classic example used to illustrate synchronization issues when multiple threads are competing for multiple locks.
+* Liveness is a set of properties that require concurrent programs to make progress.
+* Prioritizing locks so that all threads try to acquire the same first lock can help avoid deadlock.
 
 From my end:
-• Deadlock can also occur in a banking application where each account has its own mutex to ensure that only one thread will be withdrawing from or depositing funds to that account at a time.
-• To transfer funds between two accounts, a thread needs to acquire the locks for both the sender and the receiver since it would be modifying the value of both accounts. If there are multiple threads concurrently making transfers between the accounts then there's a real chance that they could end up competing for the same locks and run into a deadlock scenario.
-• The solution to avoid deadlock in such a scenario would be to prioritize the locks in a certain order.	
+* Deadlock can also occur in a banking application where each account has its own mutex to ensure that only one thread will be withdrawing from or depositing funds to that account at a time.
+* To transfer funds between two accounts, a thread needs to acquire the locks for both the sender and the receiver since it would be modifying the value of both accounts. If there are multiple threads concurrently making transfers between the accounts then there's a real chance that they could end up competing for the same locks and run into a deadlock scenario.
+* The solution to avoid deadlock in such a scenario would be to prioritize the locks in a certain order.	
 </details>
 
 
@@ -681,14 +681,14 @@ The chapter demonstrates a deadlock with a dining philosophers problem and how t
 |Resolving Deadlock	 |The deadlock in the given scenario is resolved by ensuring that locks are always taken in the same order by every thread.|
 
 Key Takeaways:
-	• Deadlocks are tricky to detect and debug. Just like a race condition, you might get lucky and never experience a problem with your program, even if the potential for a deadlock exists.
-	• The simplest technique to prevent deadlocks is to ensure that locks are always taken in the same order by every thread.
-	• Another technique for preventing deadlocks is to put a timeout on lock attempts. If a thread is not able to successfully acquire all of the locks it needs within a certain amount of time, it will back up, free all of the locks that it did take and then wait for a random amount of time before trying again to give other threads a chance to take the locks they need.
+* Deadlocks are tricky to detect and debug. Just like a race condition, you might get lucky and never experience a problem with your program, even if the potential for a deadlock exists.
+* The simplest technique to prevent deadlocks is to ensure that locks are always taken in the same order by every thread.
+* Another technique for preventing deadlocks is to put a timeout on lock attempts. If a thread is not able to successfully acquire all of the locks it needs within a certain amount of time, it will back up, free all of the locks that it did take and then wait for a random amount of time before trying again to give other threads a chance to take the locks they need.
 	
 From my end:
-	• Deadlocks can occur in a system if a process holds a resource and requests another resource held by another process, then both processes will wait indefinitely causing a deadlock.
-	• Deadlocks can be prevented by avoiding the four Coffman conditions for deadlock: mutual exclusion, hold and wait, no preemption, and circular wait.
-	• In Python, the threading module provides a Lock class to deal with the thread synchronization. This class provides a mechanism to the threads to change their behavior based on the status of the locks.
+* Deadlocks can occur in a system if a process holds a resource and requests another resource held by another process, then both processes will wait indefinitely causing a deadlock.
+* Deadlocks can be prevented by avoiding the four Coffman conditions for deadlock: mutual exclusion, hold and wait, no preemption, and circular wait.
+* In Python, the threading module provides a Lock class to deal with the thread synchronization. This class provides a mechanism to the threads to change their behavior based on the status of the locks.
 </details>
 
 
@@ -706,14 +706,14 @@ The chapter discusses the concept of an abandoned lock in multithreading. An aba
 | Abandoned Lock | An abandoned lock is a situation where a thread acquires a lock and then terminates unexpectedly without releasing the lock. This can cause other threads to wait indefinitely for the lock to be released.|
 
 Key Takeaways:
-• Abandoned locks can cause deadlocks in a multithreading environment.
-• It is important to ensure that locks are properly managed and released to avoid such situations.
-• Unexpected termination of a thread can lead to an abandoned lock.
+* Abandoned locks can cause deadlocks in a multithreading environment.
+* It is important to ensure that locks are properly managed and released to avoid such situations.
+* Unexpected termination of a thread can lead to an abandoned lock.
 
 From my end:
-• It's crucial to handle exceptions in a way that ensures locks are released even when unexpected terminations occur.
-• Using constructs like 'finally' in Java or 'with' in Python can help ensure that locks are always released, even in case of unexpected terminations.
-• Abandoned locks are a common source of bugs in multithreaded applications and understanding them can help in debugging such issues.	
+* It's crucial to handle exceptions in a way that ensures locks are released even when unexpected terminations occur.
+* Using constructs like 'finally' in Java or 'with' in Python can help ensure that locks are always released, even in case of unexpected terminations.
+* Abandoned locks are a common source of bugs in multithreaded applications and understanding them can help in debugging such issues.	
 </details>
 
 <details>
@@ -734,14 +734,14 @@ The chapter demonstrates what happens if a lock gets abandoned in Python, using 
 |Context Managers	|Python lock objects support working with context managers. Using the with statement on a lock is equivalent to using the try and finally blocks. This is a more pythonic way to program.|
 
 Key Takeaways:
-• An abandoned lock can cause a program to get stuck, making no progress.
-• To prevent an abandoned lock, the critical section should be put within a try block and a finally block should be used to ensure locks get released before the current thread gets terminated if it crashes.
-• Python lock objects support working with context managers, providing a more pythonic way to program.
+* An abandoned lock can cause a program to get stuck, making no progress.
+* To prevent an abandoned lock, the critical section should be put within a try block and a finally block should be used to ensure locks get released before the current thread gets terminated if it crashes.
+* Python lock objects support working with context managers, providing a more pythonic way to program.
 
 From my end:
-• It's good practice to always make sure locks will be released, if something goes wrong and unexpectedly crashes a thread.
-• Using a context manager is the more pythonic way to program, so it's recommended to use the with statement on a lock instead of try and finally blocks.
-• In the given example, even when an exception occurs, thanks to the finally clause, the thread is able to release the lock before it terminates.	
+* It's good practice to always make sure locks will be released, if something goes wrong and unexpectedly crashes a thread.
+* Using a context manager is the more pythonic way to program, so it's recommended to use the with statement on a lock instead of try and finally blocks.
+* In the given example, even when an exception occurs, thanks to the finally clause, the thread is able to release the lock before it terminates.	
 </details>
 
 <details>
@@ -760,14 +760,14 @@ Starvation occurs when a thread is unable to gain access to a necessary resource
 |Concurrent Threads |Having too many concurrent threads can also lead to starvation, as the competition for resources increases.|
 
 Key Takeaways:
-• Starvation occurs when a thread is unable to gain access to a necessary resource and is therefore unable to make progress.
-• Thread scheduling, thread priorities, and the number of concurrent threads can all contribute to starvation.
-• In general, higher priority threads will be scheduled to execute more often, potentially causing lower priority threads to starve.
+* Starvation occurs when a thread is unable to gain access to a necessary resource and is therefore unable to make progress.
+* Thread scheduling, thread priorities, and the number of concurrent threads can all contribute to starvation.
+* In general, higher priority threads will be scheduled to execute more often, potentially causing lower priority threads to starve.
 
 From my end:
-• Starvation can be a significant issue in systems with many threads and limited resources.
-• Balancing thread priorities and managing the number of concurrent threads can help mitigate the risk of starvation.
-• Understanding how your operating system schedules thread execution can also help in preventing starvation.	
+* Starvation can be a significant issue in systems with many threads and limited resources.
+* Balancing thread priorities and managing the number of concurrent threads can help mitigate the risk of starvation.
+* Understanding how your operating system schedules thread execution can also help in preventing starvation.	
 </details>
 
 
@@ -788,15 +788,15 @@ Main Summary here
 |Fairness Among Threads	| Techniques can be used to improve or even guarantee fairness among threads, but that type of workload management is very situation dependent and beyond the scope of this course.|
 
 Key Takeaways:
-• Thread starvation is a problem in programs with a large number of threads where some threads may never get a chance to execute.
-• The dining philosophers problem is a classic example used to illustrate synchronization issues and techniques in an operating system.
-• In Python, a local variable can be added within a function to keep track of resource distribution among threads.
-• Techniques can be used to improve or even guarantee fairness among threads, but that type of workload management is very situation dependent.
+* Thread starvation is a problem in programs with a large number of threads where some threads may never get a chance to execute.
+* The dining philosophers problem is a classic example used to illustrate synchronization issues and techniques in an operating system.
+* In Python, a local variable can be added within a function to keep track of resource distribution among threads.
+* Techniques can be used to improve or even guarantee fairness among threads, but that type of workload management is very situation dependent.
 
 From my end:
-• Thread starvation can lead to some very impatient and angry users in the case of a web server that created new threads to handle a huge number of incoming requests.
-• It's important to manage workload among threads to ensure fairness and efficiency.
-• The dining philosophers problem is a great way to understand thread synchronization and potential issues like thread starvation.	
+* Thread starvation can lead to some very impatient and angry users in the case of a web server that created new threads to handle a huge number of incoming requests.
+* It's important to manage workload among threads to ensure fairness and efficiency.
+* The dining philosophers problem is a great way to understand thread synchronization and potential issues like thread starvation.	
 </details>
 
 
@@ -816,14 +816,14 @@ Livelock is a situation where two or more threads are blocking each other from m
 | Avoiding Livelock	| To avoid livelocks, ensure that only one process takes action, chosen by priority or some other mechanism. |
 
 Key Takeaways:
-• Livelock is a situation where two or more threads are blocking each other from making progress, but unlike deadlock, the threads in a livelock are actively trying to resolve the problem.
-• Livelocks are often caused by algorithms intended to detect and recover from deadlock.
-• To avoid livelocks, ensure that only one process takes action, chosen by priority or some other mechanism.
+* Livelock is a situation where two or more threads are blocking each other from making progress, but unlike deadlock, the threads in a livelock are actively trying to resolve the problem.
+* Livelocks are often caused by algorithms intended to detect and recover from deadlock.
+* To avoid livelocks, ensure that only one process takes action, chosen by priority or some other mechanism.
 
 From my end:
-• Livelock is a common issue in multi-threaded programming and understanding it can help in designing more efficient algorithms.
-• The concept of livelock also applies to real-life situations where two or more entities are trying to resolve a conflict but end up in a loop of actions that prevent resolution.
-• Understanding the difference between deadlock and livelock is crucial in concurrent programming.	
+* Livelock is a common issue in multi-threaded programming and understanding it can help in designing more efficient algorithms.
+* The concept of livelock also applies to real-life situations where two or more entities are trying to resolve a conflict but end up in a loop of actions that prevent resolution.
+* Understanding the difference between deadlock and livelock is crucial in concurrent programming.	
 </details>
 
 
@@ -844,13 +844,13 @@ The instructor demonstrates a livelock in Python by modifying the original dinin
 |Resolving Livelock	| The instructor introduces randomness into the locking process to resolve the livelock.|
 
 Key Takeaways:
-• Deadlocks and livelocks can occur in multi-threaded programs.
-• Livelocks can be harder to locate and debug than deadlocks.
-• Introducing randomness into the locking process can help resolve livelocks.
+* Deadlocks and livelocks can occur in multi-threaded programs.
+* Livelocks can be harder to locate and debug than deadlocks.
+* Introducing randomness into the locking process can help resolve livelocks.
 
 From my end:
-• Livelocks and deadlocks are common issues in concurrent programming and understanding them is crucial for writing efficient multi-threaded programs.
-• The dining philosophers problem is a classic example used to illustrate synchronization issues and deadlock and livelock situations in concurrent programming.
-• The solution provided in the lecture is specific to the dining philosophers problem and may not be applicable to all livelock situations.	
+* Livelocks and deadlocks are common issues in concurrent programming and understanding them is crucial for writing efficient multi-threaded programs.
+* The dining philosophers problem is a classic example used to illustrate synchronization issues and deadlock and livelock situations in concurrent programming.
+* The solution provided in the lecture is specific to the dining philosophers problem and may not be applicable to all livelock situations.	
 </details>
 
